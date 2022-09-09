@@ -1,16 +1,25 @@
-# This is a sample Python script.
+from typing import Union
+from fastapi import FastAPI
 
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import Router
+
+app = FastAPI()
+
+global TOTAL_PARKING_SPOTS
+TOTAL_PARKING_SPOTS = 50
+
+@app.get(Router.GET_MAIN_API_LANDING)
+def ping():
+    return {"Ping": "Pong"}
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+@app.get(Router.GET_AVAILABLE_SPACES)
+def available_spaces(cars_parked: int):
+    return {"cars_parked": cars_parked, "available_spaces": TOTAL_PARKING_SPOTS - cars_parked}
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('Hello World')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+@app.put(Router.PUT_TOTAL_SPACES)
+def update_total_spaces(total_spaces: int):
+    global TOTAL_PARKING_SPOTS
+    TOTAL_PARKING_SPOTS = total_spaces
+    return {"total_spaces": TOTAL_PARKING_SPOTS}

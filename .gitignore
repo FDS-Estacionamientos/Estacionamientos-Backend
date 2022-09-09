@@ -1,4 +1,5 @@
 
+FabricaDeSoftware/src/venv/
 FabricaDeSoftware/src/venv/Lib/site-packages/_distutils_hack/__init__.py
 FabricaDeSoftware/src/.idea/inspectionProfiles/profiles_settings.xml
 FabricaDeSoftware/src/.idea/inspectionProfiles/Project_Default.xml
@@ -1468,3 +1469,4 @@ FabricaDeSoftware/src/venv/Scripts/pip3.9.exe
 FabricaDeSoftware/src/venv/Scripts/pip3.exe
 FabricaDeSoftware/src/venv/Scripts/python.exe
 FabricaDeSoftware/src/venv/Scripts/pythonw.exe
+*.pyc
