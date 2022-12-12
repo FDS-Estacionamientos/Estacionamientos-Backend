@@ -48,12 +48,13 @@ manager = ConnectionManager()
 @app.websocket(Router.WEBOCKET)
 async def websocket_endpoint(websocket: WebSocket):
     global TOTAL_PARKING_SPOTS
+    global USED_SPOTS
     await manager.connect(websocket)
 
     try:
         while True:
             await asyncio.sleep(2)
-            await websocket.send_text(f"Estacionamientos disponibles: {TOTAL_PARKING_SPOTS}")
+            await websocket.send_text(f"Estacionamientos disponibles: {TOTAL_PARKING_SPOTS - USED_SPOTS}")
     except WebSocketDisconnect:
         manager.disconnect(websocket)
         await manager.broadcast(f"Cliente ha cerrado la conexion")
