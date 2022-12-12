@@ -104,7 +104,7 @@ if True:
 ## Prediction
 
 #%%
-
+#!python
 !python FabricaDeSoftware/cl/src/yolo/yolov5/detect.py --weights yolov5/yolov5s.pt --img 676 --conf 0.4 --source FabricaDeSoftware/cl/src/yolo/data/testing_images
 
 
